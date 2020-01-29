@@ -86,7 +86,7 @@ lon = list(data['Longitude'])
 lat2 = list(data2[' Latitude'])
 lon2 = list(data2['Longitude'])
 
-
+########### PART 2
 #Associating requests to nearest POI
 for a,b in zip(lat, lon):
     w = distance(a,b, lat2[0], lon2[0])
@@ -116,7 +116,7 @@ for a,b in zip(lat, lon):
 df3 = spark.createDataFrame([(l,) for l in closest], ['Closest'])
 df2 = spark.createDataFrame([(l,) for l in POI], ['POI'])
 
-# Part 3a
+########### PART 3a
 
 print ("Part 3")
 print ("The Mean and standard deviation of POI1 is")
@@ -132,7 +132,7 @@ print ("Mean: %f" %mean(POI4))
 print ("Standard Deviation: %f" %stdev(POI4))
 
 
-# Determining density and radius
+########### PART 3b
 rad1= max(POI1)
 density1 = (len(POI1))/((math.pi)*(rad1**2))
 
@@ -156,7 +156,7 @@ print ("Radius %f" %rad4)
 Pt = len(POI1)+len(POI2)+len(POI3)
 
 # Determining  a ratio for circle radii
-
+########### PART 4a
 r1 = (20*len(POI1))/(Pt)
 r2 = (20*len(POI3))/(Pt)
 r3 = (20*len(POI4))/(Pt)
